@@ -21,7 +21,7 @@ app.get('/listNotes',db.getNotes);
 app.post('/postNote',db.postNote);
 app.delete('/deleteNote',db.deleteNote);
 app.post('/updateNote',db.updateNote);
-app.get('/fetchNote',db.fetchNote);
+app.post('/fetchNote',db.fetchNote);
 
 
 
