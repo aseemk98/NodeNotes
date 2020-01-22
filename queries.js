@@ -50,10 +50,19 @@ const updateNote = (request,response) => {
     });
 };
 
-
+const fetchNote = (request,response) => {
+    const id = request.body.id;
+    pool.query('select * from notes where id=$1',[id],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+};
 module.exports = {
     getNotes,
     postNote,
     deleteNote,
-    updateNote
+    updateNote,
+    fetchNote
 }
