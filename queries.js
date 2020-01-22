@@ -13,7 +13,7 @@ const getNotes = (request,response) => {
         if(error){
             throw error;
         }
-        response.status(200).json(results.rows)
+        response.status(200).json(results.rows);
     });
 };
 
@@ -25,7 +25,7 @@ const postNote = (request,response) => {
         if (error){
             throw error;
         };
-        response.status(201).send('Note successfully added');
+        response.json({"msg":"The note has been added successfullly."})
     });
 };
 
@@ -35,7 +35,7 @@ const deleteNote = (request,response) => {
         if (error){
             throw error;
         }
-        response.status(201).send('Note successfully deleted.');
+        response.json({"msg":"The note has been deleted successfullly."})
     });
 };
 
@@ -46,7 +46,7 @@ const updateNote = (request,response) => {
         if(error){
             throw error;
         }
-        response.status(201).send('Note updates successfully.');
+        response.json({"msg":"The note has been updated successfullly."})
     });
 };
 
@@ -55,6 +55,9 @@ const fetchNote = (request,response) => {
     pool.query('select * from notes where id=$1',[id],(error,results)=>{
         if(error){
             throw error;
+        }
+        if (results.rows.length==0){
+            response.json({"msg":"The ID could not be found."})
         }
         response.status(200).json(results.rows);
     });
