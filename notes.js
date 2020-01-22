@@ -1,3 +1,6 @@
+
+const dotenv = require('dotenv');
+dotenv.config();
 var express = require('express');
 var app = express();
 var fs = require('fs');
@@ -13,8 +16,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
-// const dotenv = require('dotenv');
-// dotenv.config();
 
 
 //paths
