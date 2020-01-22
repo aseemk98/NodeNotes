@@ -1,11 +1,11 @@
 
 const Pool = require('pg').Pool;
 const pool = new Pool({
-    user: 'aseem',
-    password:'aseem123',
-    host : 'localhost',
-    database :'aseem',
-    port:'5432'
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    host : process.env.HOST,
+    database :process.env.DB,
+    port: process.env.PORT1
 });
 
 const getNotes = (request,response) => {
