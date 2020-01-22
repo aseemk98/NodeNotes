@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
-const dotenv = require('dotenv');
-dotenv.config();
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 
 //paths
@@ -29,5 +29,5 @@ app.post('/fetchNote',db.fetchNote);
 var server = app.listen(process.env.PORT,function(){
     var host = server.address().address;
     var port = server.address().port;
-    console.log("Notes app listening at http://%s:%s", process.env.host, port);
+    console.log("Notes app listening at http://%s:%s", process.env.HOST, port);
 })
